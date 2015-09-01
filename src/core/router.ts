@@ -1,4 +1,4 @@
-/// <reference path="../../defs/tsd.d.ts" />
+declare var require;
 import Factory   = require("../common/factory");
 import IResource = require("../resources/iResource");
 import Logger    = require("../common/logger");
@@ -72,7 +72,7 @@ class Router {
 
     /**
      * Registers a list of resources to handle routes
-     * @param {Array} resources
+     * @param {Object} resources
      */
     public registerResources(resources: Object): void {
         var keys = Object.keys(resources);
@@ -97,7 +97,6 @@ class Router {
     public start(ip: string, port: string, callback?: ()=>void): void {
         var self = this;
         this.driver.listen(port, ip, () => {
-            "use strict";
             if (callback !== undefined) callback();
             self.logger.info('Server started in http://' + ip + ':' + port);
         });

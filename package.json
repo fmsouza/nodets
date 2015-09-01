@@ -1,15 +1,14 @@
 {
   "name": "nodets",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Just a simple HTTP server written in Typescript",
   "main": "dist/index.js",
   "scripts": {
-    "configure": "tsd reinstall && tsd rebundle",
-    "test": "node ./node_modules/gulp/bin/gulp.js buildTest && node_modules/mocha/bin/mocha .compiled/test/**/*",
-    "build": "node ./node_modules/gulp/bin/gulp.js build",
-    "release": "node ./node_modules/gulp/bin/gulp.js run release",
-    "start": "node ./node_modules/gulp/bin/gulp.js build && node ./node_modules/gulp/bin/gulp.js run",
-    "deploy": "node ./node_modules/gulp/bin/gulp.js build && node ./node_modules/gulp/bin/gulp.js release && node ./node_modules/gulp/bin/gulp.js run-release"
+    "test": "gulp buildTest && mocha .compiled/test/**/*",
+    "build": "gulp build",
+    "release": "gulp release",
+    "start": "gulp build && gulp run",
+    "deploy": "gulp build && gulp release && gulp run-release"
   },
   "repository": {
     "type": "git",
@@ -39,12 +38,9 @@
     "request": "^2.57.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
     "gulp-load-plugins": "^0.10.0",
     "gulp-shell": "^0.4.2",
     "gulp-typescript": "^2.7.6",
-    "gulp-uglify": "^1.2.0",
-    "mocha": "^2.2.5",
-    "tsd": "^0.6.1"
+    "gulp-uglify": "^1.2.0"
   }
 }

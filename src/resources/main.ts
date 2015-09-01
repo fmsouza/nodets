@@ -1,4 +1,3 @@
-/// <reference path="../../defs/tsd.d.ts" />
 import IResource = require("./iResource");
 /**
  * Resource type superclass

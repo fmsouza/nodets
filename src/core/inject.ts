@@ -1,7 +1,12 @@
-/// <reference path="../../defs/tsd.d.ts" />
-import Config = require("../config");
+declare var require, Config;
 
-function $inject(dependencyPath: string): any {
-	return new (require(Config.rootPath + "/" + dependencyPath))();
+/**
+ * Injects a class instance to the module
+ * @param {string} dependencyPath - Class module path
+ * @param {any} (Optional) params - Object with class constructor params
+ * @return {Object}
+ */
+function $inject(dependencyPath: string, params?: any): any {
+	return new (require(Config.rootPath + "/" + dependencyPath))(params);
 }
 export = $inject;

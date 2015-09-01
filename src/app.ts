@@ -1,8 +1,7 @@
-/// <reference path="../defs/tsd.d.ts" />
+declare var process, Config;
 import Factory    = require("./common/factory");
 import Logger     = require("./common/logger");
 import Router     = require("./core/router");
-import Config     = require("./config");
 import MailServer = require("./core/mail/mailServer");
 import MailObject = require("./core/mail/mailObject");
 import Utils      = require("./common/tools/utils");
@@ -17,11 +16,10 @@ class Application{
      * Init application
      *
      * @method main
-     * @param {String[]} argv Process arg list
+     * @param {string[]} argv - Process arg list
      * @return {void}
      */
     public static main(argv: string[]): void{
-        "use strict";
         
         var logger: Logger = Factory.getRuntimeLogger();
         logger.info('Starting the server...');
@@ -35,7 +33,12 @@ class Application{
          
         router.start(environment.ip, environment.port); // Starting RESTful application
     }
-    
+
+    /**
+     * Handles 'uncaughtException' and reports through e-mail 
+     * @method handleFatalError
+     * @return {void}
+     */
     public static handleFatalError(): void{
         process.on('uncaughtException', (error: any) => {
             
@@ -50,7 +53,6 @@ class Application{
             mailServer.sendMail(mail, (error, message) =>{
                 if(error) console.log(error);
                 if(message) console.log(message);
-                process.exit(-1);
             });
         });
     }

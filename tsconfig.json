@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+		"experimentalDecorators": true
+    },
+    "files": [
+        "./src/**/*.ts",
+		"./test/**/*.ts"
+    ]
+}

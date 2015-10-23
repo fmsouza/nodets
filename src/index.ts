@@ -1,8 +1,7 @@
-declare var global, require, process;
-global.Config = require("./config");
-try{
-	require("./app").main(process.argv);
-} catch(e){
-	console.log("Fatal: "+e.stack);
-	process.exit(1);
+import {startAPI} from './core/decorators';
+
+class App {
+	
+	@startAPI
+	public static main(): void {}
 }

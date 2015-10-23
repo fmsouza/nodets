@@ -1,10 +1,9 @@
 declare var require;
-import Sync = require("./sync");
 /**
  * Manipulates files
  * @class File
  */
-class File {
+export class File {
     
     private directory: string;
     private file: string;
@@ -17,6 +16,7 @@ class File {
         this.file = splittedPath.pop();
         this.directory = splittedPath.join('/');
         this.fs = require("fs-extra");
+		this.fs.ensureFileSync(this.fullPath);
     }
     
     /**
@@ -45,35 +45,29 @@ class File {
 
     /**
      * Appends content to end of file
-     * @param {string} content - Content to be appended
+     * @param {string} content - Content to be written to the file
+	 * @param {Function} callback - (error, response)=>void (Optional
+	 * @return {void}
      */
     public append(content: string): void {
-        try {
-            Sync.promise(this.fs, this.fs.ensureFile, this.fullPath);
-            Sync.promise(this.fs, this.fs.appendFile, this.fullPath, content+'\n');
-        } catch (e) {
-            throw e;
-        }
+        this.fs.appendFileSync(this.fullPath, `${content}\n`);
     }
 
     /**
      * Writes the given content to a file. Ovewrites if it already has any content.
-     * @param {string} content - Content to be written
+     * @param {string} content - Content to be written to the file
+	 * @param {Function} callback - (error, response)=>void (Optional
+	 * @return {void}
      */
     public write(content: string): void {
-        try {
-            Sync.promise(this.fs, this.fs.outputFile, this.fullPath, content);
-        } catch (e) {
-            throw e;
-        }
+        this.fs.outputFileSync(this.fullPath, `${content}\n`);
     }
 
     /**
      * Reads the file content
-     * @return string
+     * @return {string}
      */
     public read(): string {
         return this.fs.readFileSync(this.fullPath, 'utf8');
     }
 }
-export = File;

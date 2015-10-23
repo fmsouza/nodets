@@ -1,14 +1,30 @@
 {
   "name": "nodets2",
   "version": "2.0.0",
-  "description": "",
-  "main": "index.ts",
+  "description": "Just a simple HTTP server written in TypeScript",
   "scripts": {
     "test": "mocha test/**/* --require ts-node/register",
     "start":  "ts-node src/index.ts"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/fmsouza/nodets"
+  },
+  "compiler": "common",
+  "keywords": [
+    "typescript",
+    "nodejs",
+    "node",
+    "desktop",
+    "server",
+    "wrapper",
+    "infrastructure"
+  ],
+  "author": "Fred Souza <fredericoamsouza@gmail.com> (http://fmsouza.github.io)",
+  "license": "GNU-GPL v2",
+  "bugs": {
+    "url": "https://github.com/fmsouza/nodets/issues"
+  },
   "dependencies": {
     "body-parser": "^1.14.1",
     "compression": "^1.6.0",

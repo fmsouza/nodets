@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run -it -p 8080:8080 -v $(pwd):/nodets --name nodejs nodejs /bin/bash
+docker run -it -p 8080 -p 80 -v $(pwd):/app --name nodejs nodejs bash

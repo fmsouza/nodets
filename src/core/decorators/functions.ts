@@ -1,7 +1,7 @@
 declare var global;
-import {Logger} from '../logger';
-import {Router} from '../router';
-import {Config} from '../../config';
+import Logger from '../logger';
+import Router from '../router';
+import Config from '../../config';
 
 function initLog(): void {
     if(!global.Log) {

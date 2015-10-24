@@ -1,6 +1,6 @@
 declare var __dirname: string, process: any;
 
-export class Config {
+export default class Config {
 	
 	public static root: string = __dirname;
 	

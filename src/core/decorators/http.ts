@@ -1,6 +1,6 @@
 declare var Router, Log;
 
-export class Http {
+export default class Http {
     
     public static use(uri: string): void {}
     

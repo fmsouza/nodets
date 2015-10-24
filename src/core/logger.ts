@@ -1,7 +1,7 @@
-import {File} from './file';
-import {Config} from '../config';
+import File from './file';
+import Config from '../config';
 
-export class Logger {
+export default class Logger {
 	
 	private fs: File;
 	

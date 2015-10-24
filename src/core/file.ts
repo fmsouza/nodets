@@ -3,7 +3,7 @@ declare var require;
  * Manipulates files
  * @class File
  */
-export class File {
+export default class File {
     
     private directory: string;
     private file: string;

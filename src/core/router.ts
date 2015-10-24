@@ -1,8 +1,7 @@
+import Config from '../config';
 declare var require, Log;
 
-import {Config} from '../config';
-
-export class Router {
+export default class Router {
 	
 	private driver: any;
 	

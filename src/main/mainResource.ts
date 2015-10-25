@@ -1,5 +1,6 @@
 import {Http} from '../core/decorators';
 
+@Http.base('/hello')
 export default class MainResource {
 	
 	@Http.get('/')

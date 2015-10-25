@@ -1,4 +1,4 @@
-import {startAPI} from './core/decorators';
+import {startAPI} from './core';
 
 /**
  * App class

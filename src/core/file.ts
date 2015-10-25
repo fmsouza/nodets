@@ -1,7 +1,7 @@
 declare var require;
 /**
- * Manipulates files
- * @class File
+ * Manipulates files access
+ * @class {File}
  */
 export default class File {
     
@@ -46,7 +46,6 @@ export default class File {
     /**
      * Appends content to end of file
      * @param {string} content - Content to be written to the file
-	 * @param {Function} callback - (error, response)=>void (Optional
 	 * @return {void}
      */
     public append(content: string): void {
@@ -56,7 +55,6 @@ export default class File {
     /**
      * Writes the given content to a file. Ovewrites if it already has any content.
      * @param {string} content - Content to be written to the file
-	 * @param {Function} callback - (error, response)=>void (Optional
 	 * @return {void}
      */
     public write(content: string): void {

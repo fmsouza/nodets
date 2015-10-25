@@ -1,4 +1,4 @@
-declare var global;
+declare var global, process;
 import Logger from '../logger';
 import Router from '../router';
 import Config from '../../config';
@@ -11,6 +11,7 @@ function initLog(): void {
     if(!global.Log) {
         global.Log = new Logger();
         global.Log.info('Starting server...');
+        process.on('uncaughtException', (error: any) => { global.Log.error(error.stack); });
     }
 }
 

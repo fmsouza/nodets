@@ -3,6 +3,10 @@ import Logger from '../logger';
 import Router from '../router';
 import Config from '../../config';
 
+/**
+ * Initialize global improved log
+ * @return {void}
+ */
 function initLog(): void {
     if(!global.Log) {
         global.Log = new Logger();
@@ -10,6 +14,10 @@ function initLog(): void {
     }
 }
 
+/**
+ * Initialize global HTTP Server
+ * @return {void}
+ */
 function initServer(): void {
     if(!global.Router) {
         global.Router = new Router();
@@ -18,11 +26,25 @@ function initServer(): void {
     }
 }
 
+/**
+ * Initialize the application
+ * @param {Object} target - Current object instance
+ * @param {string} propertyKey - Method/Function name
+ * @param {TypedPropertyDescriptor<any>} descriptor - Procedure descriptor
+ * @return {void}
+ */
 export function start(target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<any>): void {
     initLog();
     descriptor.value();
 }
 
+/**
+ * Initialize the application with the HTTP Server
+ * @param {Object} target - Current object instance
+ * @param {string} propertyKey - Method/Function name
+ * @param {TypedPropertyDescriptor<any>} descriptor - Procedure descriptor
+ * @return {void}
+ */
 export function startAPI(target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<any>): void {
     initLog();
     initServer();
